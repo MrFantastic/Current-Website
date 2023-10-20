@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="This is a website that shows off my website building skills.">
+    <meta name="keywords" content="HTML, Assignments, CSS, Homepage, COP4813, Resume">
+    <meta name="author" content="Alexander Raymond">
+    <title>Alex the IT Specialist</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Your existing CSS code here */
+    </style>
+</head>
+<body>
+    <section class="sec_one">
+        <header id="header">
+            <!-- Logo -->
+            <img src="logo.jpg" alt="Logo" width="150px" height="50px">
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="#header">Home</a></li>
+                    <li class="has-submenu">
+                        <a href="#Assignments">Assignments</a>
+                        <!-- Submenu for Assignments -->
+                        <ul class="submenu">
+                            <li><a href="a1.html">Assignment One</a></li>
+                            <li><a href="a2.html">Assignment Two</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#cool-links">Cool Links</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Contact Button -->
+            <a class="cta" href="#"><button>CONTACT</button></a>
+        </header>
+
+        <div id="content" class="text-box-intro">
+            <h1>Welcome to the IT Specialist Website</h1>
+            <br>
+            <p>
+              Hello Traveler, this is the home page of my website. Write now your looking at assignment 2 in web systems course. This assignment was a bit time consuming most of which was getting this evil nav bar to work.
+              The good news is that there is now a drop down on assignments that will show a link to my assignment one version of my page. I have also implemented mobile functionality so now the website works much better on 
+              smaller screens. This can be seen by resizing the window to the nav bar change into a menu style of nav bar. I also added metadata tags but that didn't take to long. There is still much to do so I am off to code some more stuff. 
+
+            </p>
+        </div>
+        <br><br><br><br><br><br>
+         
+        <footer>
+            <p>Created by: Alexander Raymond<br>
+            <a href="mailto:Rayalex566@gmail.com">Rayalex566@gmail.com</a></p>
+        </footer>
+    </section>
+
+    <script>
+        $(document).ready(function() {
+            $(".menu-toggle").click(function() {
+                $(".nav_links").slideToggle(); // Toggle the mobile navigation menu
+                $(this).toggleClass("active"); // Toggle the active class for the menu toggle button
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="This is a website that shows off my website building skills.">
+    <meta name="keywords" content="HTML, Assignments, CSS, Homepage, COP4813, Resume">
+    <meta name="author" content="Alexander Raymond">
+    <title>Alex the IT Specialist</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Include Inputmask.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+</head>
+<body>
+    <section class="sec_one">
+        <header id="header">
+            <!-- Logo 
+            <img src="logo.jpg" alt="Logo" width="150px" height="50px">
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        -->
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-submenu">
+                        <a href="#Assignments">Assignments</a>
+                        <!-- Submenu for Assignments -->
+                        <ul class="submenu">
+                            <li><a href="a1.html">Assignment One</a></li>
+                            <li><a href="a2.html">Assignment Two</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#cool-links">Cool Links</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Contact Button 
+            <a class="cta" href="#"><button>CONTACT</button></a>
+            -->
+        </header>
+
+        <div id="content" class="text-box-intro">
+            <h1>Welcome to the IT Specialist Website</h1>
+            <br>
+            <p>
+                Hello Traveler, this is the home page of my website. Write now you're looking at assignment 3 in web systems course. This assignment adds a user form to the page that validates your answers. Any information that you
+                enter is not actually sent to my server as I did not feel like coding that. It simple validates your answers before you submit.
+            </p>
+        </div>
+
+        <!-- User Data Form (Centered) -->
+        <div id="user-data-form" class="centered">
+            <h2>Enter Your Information</h2>
+            <form name="userDataForm" action="#" method="post" onsubmit="return validateForm()">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+                
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" id="phone_number" name="phone_number" placeholder="XXX-XXX-XXXX" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                
+                <label for="address">Address (City, State, Zip Code):</label>
+                <input type="text" id="address" name="address" placeholder="City, State, Zip Code" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                
+                <label for="security_question">Security Question: Who is the current president?(first name Last name and the first letter of each name should be capitalized.)</label>
+                <input type="text" id="security_answer" name="security_answer" required>
+                
+                <br>
+                
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+         
+        <footer>
+            <p>Created by: Alexander Raymond<br>
+            <a href="mailto:Rayalex566@gmail.com">Rayalex566@gmail.com</a></p>
+        </footer>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize Inputmask.js for phone number input
+            $('#phone_number').inputmask('999-999-9999');
+
+            $(".menu-toggle").click(function() {
+                $(".nav_links").slideToggle(); // Toggle the mobile navigation menu
+                $(this).toggleClass("active"); // Toggle the active class for the menu toggle button
+            });
+        });
+        
+        function validateForm() {
+            var firstName = document.forms["userDataForm"]["first_name"].value;
+            var lastName = document.forms["userDataForm"]["last_name"].value;
+            var phoneNumber = document.forms["userDataForm"]["phone_number"].value;
+            var email = document.forms["userDataForm"]["email"].value;
+            var address = document.forms["userDataForm"]["address"].value;
+            var dob = document.forms["userDataForm"]["dob"].value;
+            var message = document.forms["userDataForm"]["message"].value;
+            var securityAnswer = document.forms["userDataForm"]["security_answer"].value.toLowerCase(); // Convert answer to lowercase
+
+            if (firstName === "" || lastName === "" || phoneNumber === "" || email === "" || address === "" || dob === "" || message === "" || securityAnswer === "") {
+                alert("All fields are required.");
+                return false; // Prevent form submission
+            }
+
+            // Regular expression pattern for City, State, Zip Code (e.g., "City, State, Zip Code")
+            var addressPattern = /^[A-Za-z\s]+,\s[A-Za-z\s]+,\s\d{5}$/;
+
+            if (!address.match(addressPattern)) {
+                alert("Please enter a valid address in the format 'City, State, Zip Code'.");
+                return false; // Prevent form submission
+            }
+
+            // Regular expression pattern for a valid email address
+            var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+            if (!email.match(emailPattern)) {
+                alert("Please enter a valid email address.");
+                return false; // Prevent form submission
+            }
+
+            // Regular expression pattern for 10-digit phone number (e.g., "123-456-7890")
+            var phonePattern = /^\d{3}-\d{3}-\d{4}$/;
+
+            if (!phoneNumber.match(phonePattern)) {
+                alert("Please enter a valid 10-digit phone number in the format 'XXX-XXX-XXXX'.");
+                return false; // Prevent form submission
+            }
+
+            // Regular expression pattern for date in the format "MM/DD/YYYY"
+            var dobPattern = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
+
+            if (!dob.match(dobPattern)) {
+                alert("Please enter a valid date of birth in the format 'MM/DD/YYYY'.");
+                return false; // Prevent form submission
+            }
+
+            // Convert the date of birth string to a Date object
+            var dobDate = new Date(dob);
+            var currentDate = new Date();
+
+            if (dobDate > currentDate) {
+                alert("Date of birth cannot be in the future.");
+                return false; // Prevent form submission
+            }
+
+            // Check the security answer
+            if (securityAnswer !== "Joe Biden") {
+                alert("Incorrect security answer.");
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>

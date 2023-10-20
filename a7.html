@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="This is a website that shows off my website building skills.">
+    <meta name="keywords" content="HTML, Assignments, CSS, Homepage, COP4813, Resume">
+    <meta name="author" content="Alexander Raymond">
+    <title>Alex the IT Specialist</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+</head>
+<body>
+    <section class="sec_one">
+        <header id="header">
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-submenu">
+                        <a href="#Assignments">Assignments</a>
+                        <!-- Submenu for Assignments -->
+                        <ul class="submenu">
+                            <li><a href="a1.html">Assignment One</a></li>
+                            <li><a href="a2.html">Assignment Two</a></li>
+                            <li><a href="a3.html">Assignment Three</a></li>
+                            <li><a href="a4.html">Assignment Four</a></li>
+                            <li><a href="a5.html">Assignment Five</a></li>
+                            <li><a href="a6.html">Assignment Six</a></li>
+                            <li><a href="a7.html">Assignment Seven</a></li>
+                            <li><a href="a8.html">Assignment Eight</a></li>
+                            <li><a href="a9.html">Assignment Nine</a></li>
+                            <li><a href="a10.html">Assignment Ten</a></li>
+                            <li><a href="a11.html">Assignment Eleven</a></li>
+                            <li><a href="a12.html">Assignment Twelve</a></li>
+                            <li><a href="a13.html">Assignment Thirteen</a></li>
+                            <li><a href="a14.html">Assignment Fourteen</a></li>
+                            <li><a href="a15.html">Assignment Fifthteen</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#cool-links">Cool Links</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="content" class="text-box-intro">
+            <h1>Welcome to the IT Specialist Website</h1>
+            <br>
+            <p>
+                template
+            </p>
+            <input type="button" value="Deal Card" id="deal">
+            <br>
+            <p class="delete ui-droppable" id="droppable">
+                This is the Discard Pile
+            </p>
+            <div id="cards" class="card"></div>
+           
+            <script>
+                var cardsInDeck = new Array();
+                var numberOfCardsInDeck = 52;
+                cardsInDeck[0] = "2_of_clubs";
+                cardsInDeck[1] = "2_of_diamonds";
+                cardsInDeck[2] = "2_of_hearts";
+                cardsInDeck[3] = "2_of_spades";
+                cardsInDeck[4] = "3_of_clubs";
+                cardsInDeck[5] = "3_of_diamonds";
+                cardsInDeck[6] = "3_of_hearts";
+                cardsInDeck[7] = "3_of_spades";
+                cardsInDeck[8] = "4_of_clubs";
+                cardsInDeck[9] = "4_of_diamonds";
+                cardsInDeck[10] = "4_of_hearts";
+                cardsInDeck[11] = "4_of_spades";
+                cardsInDeck[12] = "5_of_clubs";
+                cardsInDeck[13] = "5_of_diamonds";
+                cardsInDeck[14] = "5_of_hearts";
+                cardsInDeck[15] = "5_of_spades";
+                cardsInDeck[16] = "6_of_clubs";
+                cardsInDeck[17] = "6_of_diamonds";
+                cardsInDeck[18] = "6_of_hearts";
+                cardsInDeck[19] = "6_of_spades";
+                cardsInDeck[20] = "7_of_clubs";
+                cardsInDeck[21] = "7_of_diamonds";
+                cardsInDeck[22] = "7_of_hearts";
+                cardsInDeck[23] = "7_of_spades";
+                cardsInDeck[24] = "8_of_clubs";
+                cardsInDeck[25] = "8_of_diamonds";
+                cardsInDeck[26] = "8_of_hearts";
+                cardsInDeck[27] = "8_of_spades";
+                cardsInDeck[28] = "9_of_clubs";
+                cardsInDeck[29] = "9_of_diamonds";
+                cardsInDeck[30] = "9_of_hearts";
+                cardsInDeck[31] = "9_of_spades";
+                cardsInDeck[32] = "10_of_clubs";
+                cardsInDeck[33] = "10_of_diamonds";
+                cardsInDeck[34] = "10_of_hearts";
+                cardsInDeck[35] = "10_of_spades";
+                cardsInDeck[36] = "ace_of_clubs";
+                cardsInDeck[37] = "ace_of_diamonds";
+                cardsInDeck[38] = "ace_of_hearts";
+                cardsInDeck[39] = "ace_of_spades";
+                cardsInDeck[40] = "jack_of_clubs";
+                cardsInDeck[41] = "jack_of_diamonds";
+                cardsInDeck[42] = "jack_of_hearts";
+                cardsInDeck[43] = "jack_of_spades";
+                cardsInDeck[44] = "king_of_clubs";
+                cardsInDeck[45] = "king_of_diamonds";
+                cardsInDeck[46] = "king_of_hearts";
+                cardsInDeck[47] = "king_of_spades";
+                cardsInDeck[48] = "queen_of_clubs";
+                cardsInDeck[49] = "queen_of_diamonds";
+                cardsInDeck[50] = "queen_of_hearts";
+                cardsInDeck[51] = "queen_of_spades";
+                var cardHand = 0;
+
+                function dealCard() {
+                    if (numberOfCardsInDeck == 0) return false;
+                    if (cardHand >= 5) {
+                        alert("Hand is full!");
+                        return false;
+                    }
+                    
+                    var rand;
+                    do {
+                        rand = Math.floor(Math.random() * numberOfCardsInDeck);
+                    } while (cardsInDeck[rand] === undefined);
+                    
+                    var img = document.createElement("img");
+                    img.src = "https://cop4813websitefiles.s3.amazonaws.com/cards/" + cardsInDeck[rand] + ".png";
+                    img.height = 150;
+                    img.width = 150;
+                    document.getElementById("cards").appendChild(img);
+                    
+                    removeCard(rand);
+                    $(img).draggable();
+                    cardHand++;
+                }
+
+
+
+                function removeCard(c)
+                {
+                    for (j=c; j <= numberOfCardsInDeck - 2; j++)
+                    {
+                        cardsInDeck[j] = cardsInDeck[j+1];
+                    }
+                    numberOfCardsInDeck--;
+                }
+
+                $(document).ready(function() {
+                $('#deal').click(function () {
+                    dealCard();
+                });
+                });
+
+                $( init );
+
+                function init() {
+                $('#droppable').droppable( {
+                    drop: handleDropEvent
+                } );
+                }
+
+                function handleDropEvent( event, ui ) {
+                var draggable = ui.draggable;
+                cardHand--;
+                alert("Card was discarded!");
+                }
+
+
+            </script>
+</body>
+</html>

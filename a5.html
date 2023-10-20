@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="This is a website that shows off my website building skills.">
+    <meta name="keywords" content="HTML, Assignments, CSS, Homepage, COP4813, Resume">
+    <meta name="author" content="Alexander Raymond">
+    <title>Alex the IT Specialist</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section class="sec_one">
+        <header id="header">
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-submenu">
+                        <a href="#Assignments">Assignments</a>
+                        <!-- Submenu for Assignments -->
+                        <ul class="submenu">
+                            <li><a href="a1.html">Assignment One</a></li>
+                            <li><a href="a2.html">Assignment Two</a></li>
+                            <li><a href="a3.html">Assignment Three</a></li>
+                            <li><a href="a4.html">Assignment Four</a></li>
+                            <li><a href="a5.html">Assignment Five</a></li>
+                            <li><a href="a6.html">Assignment Six</a></li>
+                            <li><a href="a7.html">Assignment Seven</a></li>
+                            <li><a href="a8.html">Assignment Eight</a></li>
+                            <li><a href="a9.html">Assignment Nine</a></li>
+                            <li><a href="a10.html">Assignment Ten</a></li>
+                            <li><a href="a11.html">Assignment Eleven</a></li>
+                            <li><a href="a12.html">Assignment Twelve</a></li>
+                            <li><a href="a13.html">Assignment Thirteen</a></li>
+                            <li><a href="a14.html">Assignment Fourteen</a></li>
+                            <li><a href="a15.html">Assignment Fifthteen</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#cool-links">Cool Links</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="content" class="text-box-intro">
+            <h1>Welcome to Assignment 5</h1>
+            <br>
+            <p>
+                This program draws a nice basic spirograph using javascript.
+            </p>
+            <br>
+            <br>
+            <br>
+            <body>
+              <canvas id="spirograph" width="400" height="400"></canvas>
+              <button id="startButton">Start Drawing</button>
+              <button id="clearButton">Clear Canvas</button>
+            </body>
+              <script>
+    const canvas = document.getElementById('spirograph');
+ const ctx = canvas.getContext('2d');
+
+ // Function to calculate x and y coordinates based on the equations
+ function calculateCoordinates(R, r, O, t) {
+   const x = (R + r) * Math.cos(t) - (r + O) * Math.cos(((R + r) / r) * t);
+   const y = (R + r) * Math.sin(t) - (r + O) * Math.sin(((R + r) / r) * t);
+   return {
+     x,
+     y
+   };
+ }
+
+ // Function to draw the Spirograph
+ function drawSpirograph(R, r, O) {
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
+   ctx.beginPath();
+   const startPoint = calculateCoordinates(R, r, O, 0);
+   ctx.moveTo(startPoint.x + canvas.width / 2, startPoint.y + canvas.height / 2);
+
+   let t = 0;
+   while (t < 6 * Math.PI) { // Adjust the termination condition
+     const {
+       x,
+       y
+     } = calculateCoordinates(R, r, O, t);
+     ctx.lineTo(x + canvas.width / 2, y + canvas.height / 2);
+     t += 0.01; // Adjust the increment value for smoother curves
+   }
+
+   ctx.closePath();
+   ctx.strokeStyle = 'blue'; // Set the pen color
+   ctx.stroke();
+ }
+
+ // Button click event handler to start drawing with valid parameters
+ document.getElementById('startButton').addEventListener('click', () => {
+   let R, r;
+
+   do {
+     R = Math.floor(Math.random() * 100) + 50; // Random value between 50 and 149 for R
+     r = Math.floor(Math.random() * 30) + 10; // Random value between 10 and 39 for r
+   } while (r >= R); // Ensure r is smaller than R
+
+   const O = Math.floor(Math.random() * 20) + 10; // Random value between 10 and 29 for O
+   drawSpirograph(R, r, O);
+ });
+
+ // Button click event handler to clear the canvas
+ document.getElementById('clearButton').addEventListener('click', () => {
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
+ });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="This is a website that shows off my website building skills.">
+    <meta name="keywords" content="HTML, Assignments, CSS, Homepage, COP4813, Resume">
+    <meta name="author" content="Alexander Raymond">
+    <title>Alex the IT Specialist</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section class="sec_one">
+        <header id="header">
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-submenu">
+                        <a href="#Assignments">Assignments</a>
+                        <!-- Submenu for Assignments -->
+                        <ul class="submenu">
+                            <li><a href="a1.html">Assignment One</a></li>
+                            <li><a href="a2.html">Assignment Two</a></li>
+                            <li><a href="a3.html">Assignment Three</a></li>
+                            <li><a href="a4.html">Assignment Three</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#cool-links">Cool Links</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="content" class="text-box-intro">
+            <h1>Welcome to Assignment 4</h1>
+            <br>
+            <p>
+                This calculator determines when a car will stop after inputing the inital speed and the rate of deceleration. I used the the formula t=(v-u)/a to calculate this program and I choose it as it sounded like a useful formula that has easy graphing visiualization.
+                 When you hit the caluculate button it shows the x and y values, t =x and v = y. I had it print this way as it is how most people think of x and y values for graphs.
+                  Make sure to input a negative value for the second text box.
+            </p>
+            <br>
+            <br>
+            <br>
+            <form id="decelerationForm">
+                <label for="initialSpeed">Initial Speed (m/s):</label>
+                <input type="number" id="initialSpeed" value= 10 step="0.01" required><br>
+          
+                <label for="decelerationRate">Deceleration Rate (m/s^2):</label>
+                <input type="number" id="decelerationRate" value= -2 step="0.01" required><br>
+          
+                <button type="submit" value="Calculate">Calculate</button>
+              </form>
+              <br>
+              <br>
+              <!-- Add a button to plot the graph -->
+              <button id="plotButton">Plot Graph</button>
+          
+              <p id="result">Result will be displayed here.</p>
+        </div>
+            <!-- Add a container for the Highcharts graph -->
+            <div id="graphContainer"></div>
+            </body>
+            <script>
+            document.getElementById("decelerationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+
+            // Get user input values
+            const initialSpeed = parseFloat(document.getElementById("initialSpeed").value);
+            const decelerationRate = parseFloat(document.getElementById("decelerationRate").value);
+
+            // Check if the deceleration rate is greater than or equal to zero
+            if (decelerationRate >= 0) {
+            document.getElementById("result").textContent = "Deceleration rate must be negative for the car to stop.";
+            return;
+            }
+
+            // Initialize the speed and time
+            let speed = initialSpeed;
+            let time = 0;
+
+            // Create an initial data point with time 0 and initial speed
+            const speedData = [
+            [0, initialSpeed]
+            ]; // To store speed values for the graph
+
+            // Display the initial speed at zero seconds
+            const resultElement = document.getElementById("result");
+            resultElement.innerHTML = `At x=${time} s, y=${speed.toFixed(2)} m/s.<br>`;
+
+            // Create an interval to update the speed every second until the car stops
+            const intervalId = setInterval(function() {
+            // Update the speed using the deceleration formula
+            speed = speed + decelerationRate;
+            time += 1;
+
+            // Append the current speed to the data for the graph
+            speedData.push([time, speed]);
+
+            // Display the current speed with x and y labels, appending to the existing content
+            resultElement.innerHTML += `At x=${time} s, y=${speed.toFixed(2)} m/s.<br>`;
+
+            // Check if the car has stopped (speed <= 0)
+            if (speed <= 0) {
+                clearInterval(intervalId); // Stop the interval when the car stops
+                resultElement.innerHTML += "The car has stopped.<br>";
+            }
+            }, 1000); // Update every 1000 milliseconds (1 second)
+
+            // Enable the "Plot Graph" button after calculation
+            document.getElementById("plotButton").disabled = false;
+
+            // Define a function to plot the graph when the button is clicked
+            document.getElementById("plotButton").addEventListener("click", function() {
+            Highcharts.chart('graphContainer', {
+                chart: {
+                type: 'line'
+                },
+                title: {
+                text: 'Car Speed Over Time'
+                },
+                xAxis: {
+                title: {
+                    text: 'Time (s)'
+                },
+                type: 'linear',
+                min: 0 // Set the minimum value for the x-axis to 0
+                },
+                yAxis: {
+                title: {
+                    text: 'Speed (m/s)'
+                }
+                },
+                series: [{
+                name: 'Speed',
+                data: speedData
+                }]
+            });
+            });
+            });
+
+            </script>
+         
+        <footer>
+            <p>Created by: Alexander Raymond<br>
+            <a href="mailto:Rayalex566@gmail.com">Rayalex566@gmail.com</a></p>
+        </footer>
+    </section>
+</body>
+</html>

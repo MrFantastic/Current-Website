@@ -1,0 +1,54 @@
+{
+    "myFavoriteGames": [
+        {
+            "gameName": "Civilzation 5",
+            "consolePlatform": "PC",
+            "rank": 1
+        },
+        {
+            "gameName": "Ark Survival Evolved",
+            "consolePlatform": "PC",
+            "rank": 2
+        },
+        {
+            "gameName": "Pokemon SoulSilver",
+            "consolePlatform": "Nintendo DS",
+            "rank": 3
+        },
+        {
+            "gameName": "Mario Kart DS",
+            "consolePlatform": "Nintendo DS",
+            "rank": 4
+        },
+        {
+            "gameName": "Marvel's Spider-Man",
+            "consolePlatform": "Playstation 4",
+            "rank": 5
+        },
+        {
+            "gameName": "Star Wars Battlefront 2",
+            "consolePlatform": "PC",
+            "rank": 6
+        },
+        {
+            "gameName": "Star Wars Knights of the Old Republic",
+            "consolePlatform": "Ipad",
+            "rank": 7
+        },
+        {
+            "gameName": "Stellaris",
+            "consolePlatform": "PC",
+            "rank": 8
+        },
+        {
+            "gameName": "A Story About my Uncle",
+            "consolePlatform": "PC",
+            "rank": 9
+        },
+        {
+            "gameName": "SuperHot",
+            "consolePlatform": "PC",
+            "rank": 10
+        }
+    ]
+}

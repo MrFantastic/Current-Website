@@ -1,0 +1,202 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/* Reset CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Styles */
+body {
+    background-color: #24252A;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+}
+
+h2 {
+    color: #edf0f1;
+}
+
+/* Header Styles */
+header {
+    background-color: #24252A;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    padding: 20px 10%;
+    position: fixed;
+    width: 100%;
+    color: #edf0f1;
+}
+
+.nav_links {
+    list-style: none;
+    color: #edf0f1;
+}
+
+.nav_links li {
+    color: #edf0f1;
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    color: #edf0f1;
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #0088a9;
+}
+
+/* CSS for the submenu */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #080707; /* Background color for the submenu */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle border */
+    z-index: 1; /* Ensure submenu appears above other elements */
+    list-style: none;
+    padding: 0;
+}
+
+.has-submenu:hover .submenu {
+    display: block; /* Show the submenu when hovering over the parent item */
+}
+
+/* Styling for the main navigation */
+.nav_links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav_links li {
+    margin-right: 20px;
+    position: relative;
+}
+
+/* Content Styles */
+#content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 20px;
+}
+
+#content h1 {
+    font-size: 60px;
+    background-position: center;
+}
+
+/* Button Styles */
+button {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+/* User Data Form Styles */
+#user-data-form {
+    text-align: center;
+    padding: 20px;
+}
+
+#user-data-form h2 {
+    font-size: 24px;
+    color: #edf0f1;
+}
+
+#user-data-form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+#user-data-form input[type="text"],
+#user-data-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+#user-data-form input[type="submit"] {
+    padding: 10px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#user-data-form input[type="submit"]:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #0088a9;
+}
+     /* Add padding to the table cells */
+     table {
+        border-collapse: collapse; /* Combine table borders into a single border */
+        width: 100%; /* Make the table width 100% of its container */
+        margin: 20px 0; /* Add margin to the top and bottom */
+    }
+
+    th, td {
+        padding: 8px 12px; /* Add padding to the table cells (top and bottom, left and right) */
+        text-align: left; /* Align text to the left within cells */
+    }
+
+    /* Add light blue border to the table and its elements */
+    table, th, td {
+    color: #edf0f1;
+    border: 1px solid ; /* Add a 1px solid light blue border */
+    }
+
+    /* Style the table header row differently (e.g., make it bold) */
+    th {
+        /*background-color: white; /* Set background color for header cells */
+        font-weight: bold; /* Make text in header cells bold */
+    }
+    div.card {
+        
+    }
+
+p.delete {
+	background-color: #C0C0C0;  
+	width: 500px;
+	height: 400px;
+	border: 1px clear;
+	margin: 10px;
+	text-align: center;
+	font-size: 50px;
+}
