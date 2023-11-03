@@ -1,3 +1,3 @@
 # Current-Website
-Source code to my website hosted on AWS. This website is desgined for my web systems course that is still on going, so some
-of the website is still not functional or has no links that will be added later.
+This website is for a basic website-building class and is still ongoing. Some functionality is still missing and more pages are soon to be added that will showcase more aspects of web design. This website is hosted
+on AWS using an S3 bucket connected to Cloudfront using Route 53 that has Certificate Manager connected as well to give HTTPS as opposed to HTTP.
