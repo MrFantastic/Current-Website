@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container-md {
+    flex: 1; /* This will make the container take up the remaining vertical space */
+}
+
+footer {
+    margin-top: auto;
+}
